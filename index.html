@@ -1,0 +1,71 @@
+<!-- templates/index.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CGPA Predictor</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+</head>
+<body class="bg-gray-300">
+    <nav class="bg-blue-700 flex items-center py-6 justify-center">
+        <p class="text-white font-bold text-[200%]">CGPA PREDICTOR</p>
+    </nav>
+    <form method="POST" action="/" class="flex items-center mt-10 flex-col w-[25%] ml-[37%] rounded-xl shadow-xl py-6 bg-white">
+        <p class="font-bold text-[180%] mb-4">Title</p>
+
+        <div class="flex gap-4 mb-3">
+            <label class="text-[120%] font-bold">Gender</label>
+            <select name="gender" class="border rounded" required>
+                <option value="" disabled selected>Select Gender</option>
+                <option value="male">Male</option>
+                <option value="female">Female</option>
+            </select>
+        </div>
+
+        <div class="flex gap-4 mb-3">
+            <label class="text-[120%] font-bold">Extracurricular Activities</label>
+            <select name="extracurricular" class="border rounded" required>
+                <option value="" disabled selected>Select</option>
+                <option value="yes">Yes</option>
+                <option value="no">No</option>
+            </select>
+        </div>
+
+        <div class="flex gap-4 mb-3">
+            <label class="text-[120%] font-bold">Previous CGPA</label>
+            <input type="number" name="cgpa" class="border rounded w-[55px]" required>
+        </div>
+
+        <div class="flex gap-4 mb-3">
+            <label class="text-[120%] font-bold">Attendance</label>
+            <input type="number" name="attendance" class="border rounded w-[55px]" required>
+        </div>
+
+        <div class="flex gap-4 mb-3">
+            <label class="text-[120%] font-bold">Self Study</label>
+            <select name="self_study" class="border rounded" required>
+                <option value="" disabled selected>Select</option>
+                <option value="yes">Yes</option>
+                <option value="no">No</option>
+            </select>
+        </div>
+
+        <div class="flex gap-4 mb-3">
+            <label class="text-[120%] font-bold">Study Hours</label>
+            <input type="number" name="study_hours" class="border rounded w-[55px]" required>
+        </div>
+
+        <div class="flex justify-center mt-4">
+            <button type="submit" class="font-bold bg-blue-600 px-2 py-2 rounded text-white">Predict</button>
+        </div>
+
+        {% if predicted_cgpa %}
+        <div class="gap-4 flex mt-4">
+            <h1 class="text-[120%] font-bold">Predicted CGPA:</h1>
+            <h1 class="text-[120%] font-bold">{{ predicted_cgpa }}</h1>
+        </div>
+        {% endif %}
+    </form>
+</body>
+</html>
